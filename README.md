@@ -61,10 +61,15 @@ step 3- Start server using for test using command "npm test".
 
 <h5>1-Signin</h5>
 Link-localhost:{PORT|5000}/signin<br>
-Method-Post
+Method-Post<br>
+Validation-<pre>
+    username:Must be in alphabets have length of 6-20 letters and should not be empty.
+    password:Must includes at least one uppercase letter, one lowercase letter and one special character without whitespace and length of 8-20 and not be empty.
+    email:Must be in valid email format having maximum 30 letters length and not be empty.
+</pre>
+request-Data-
 <br>
 <pre>
-  request-Data
 {
     "username":"userfirst",
     "password":"User@123",
@@ -75,10 +80,14 @@ Method-Post
 
 <h5>2-Login</h5>
 Link-localhost:{PORT|5000}/login<br>
-Method-Post
+Method-Post<br>
+Validation-<pre>
+    password:Must includes at least one uppercase letter, one lowercase letter and one special character without whitespace and length of 8-20 and not be empty.
+    email:Must be in valid email format having maximum 30 letters length and not be empty.
+</pre>
 <br>
+request-Data-
 <pre>
-  request-Data
 {
     "email":"user@example.com",
     "password":"User@123"
@@ -88,10 +97,19 @@ Method-Post
 
 <h5>3-Create-task</h5>
 Link-localhost:{PORT|5000}/create-task<br>
-Method-Post
+Method-Post<br>
+Validation-<pre>
+    "Bearer Token": in header authorization part
+    email:Must be in valid email format having maximum 30 letters length and not be empty.
+    title: In string format having length of 6-20 and not be empty.
+    desc:max 200 length.
+    category:should be one of this ["Work/Professional", "Personal", "Family", "Finance", "Health"].
+    endDate:It should be in dd-mm-yyyy format and not remail empty
+    priority:It should be one of this ["High", "Medium", "Low"] not remain empty
+</pre>
 <br>
+request-Data-
 <pre>
-  request-Data
 {
     "email":"user@example.com",
     "title":"test1title",
@@ -104,10 +122,14 @@ Method-Post
 
 <h5>4-View-all-pending</h5>
 Link-localhost:{PORT|5000}/view-all-pending<br>
-Method-Post
+Method-Post<br>
+Validation-<pre>
+    "Bearer Token": in header authorization part
+    email:Must be in valid email format having maximum 30 letters length and not be empty.
+</pre>
 <br>
+request-Data-
 <pre>
-  request-Data
 {
     "email":"user@example.com"
 }
@@ -116,10 +138,14 @@ Method-Post
 
 <h5>5-View-all-completed</h5>
 Link-localhost:{PORT|5000}/view-all-completed<br>
-Method-Post
+Method-Post<br>
+Validation-<pre>
+    "Bearer Token": in header authorization part
+    email:Must be in valid email format having maximum 30 letters length and not be empty.
+</pre>
 <br>
+request-Data-
 <pre>
-  request-Data
 {
     "email":"user@example.com"
 }
@@ -128,10 +154,15 @@ Method-Post
 
 <h5>6-View-one-task</h5>
 Link-localhost:{PORT|5000}/signin<br>
-Method-Post
+Method-Post<br>
+Validation-<pre>
+    "Bearer Token": in header authorization part
+    email:Must be in valid email format having maximum 30 letters length and not be empty.
+    taskId:not remail empty and type og mongoose.type.objectid or give error in console
+</pre>
 <br>
+request-Data-
 <pre>
-  request-Data
 {
     "email":"user@example.com",
     "taskId":"6660b490903fcebd502fa0ac" // enter valid mongoose object id which exist
@@ -141,10 +172,20 @@ Method-Post
 
 <h5>7-Edit-task</h5>
 Link-localhost:{PORT|5000}/signin<br>
-Method-Patch
+Method-Patch<br>
+Validation-<pre>
+    "Bearer Token": in header authorization part
+    email:Must be in valid email format having maximum 30 letters length and not be empty.
+    taskId:not remail empty and type og mongoose.type.objectid or give error in console
+    title: In string format having length of 6-20 .
+    desc:max 200 length.
+    category:should be one of this ["Work/Professional", "Personal", "Family", "Finance", "Health"].
+    endDate:It should be in dd-mm-yyyy format 
+    priority:It should be one of this ["High", "Medium", "Low"] 
+</pre>
 <br>
+request-Data-
 <pre>
-  request-Data
 {
     "email":"user@example.com",
     "taskId":"6660b490903fcebd502fa0ac",
@@ -159,10 +200,15 @@ Method-Patch
 
 <h5>8-Mark-as-done</h5>
 Link-localhost:{PORT|5000}/mark-done<br>
-Method-Patch
+Method-Patch<br>
+Validation-<pre>
+    "Bearer Token": in header authorization part
+    email:Must be in valid email format having maximum 30 letters length and not be empty.
+    taskId:not remail empty and type og mongoose.type.objectid or give error in console
+</pre>
 <br>
+request-Data-
 <pre>
-  request-Data
 {
     "email":"user@example.com",
     "taskId":"6660b490903fcebd502fa0ac"
@@ -172,10 +218,15 @@ Method-Patch
 
 <h5>9-Detete-task</h5>
 Link-localhost:{PORT|5000}/detete-task<br>
-Method-Delete
+Method-Delete<br>
+Validation-<pre>
+    "Bearer Token": in header authorization part
+    email:Must be in valid email format having maximum 30 letters length and not be empty.
+    taskId:not remail empty and type og mongoose.type.objectid or give error in console
+</pre>
 <br>
+request-Data-
 <pre>
-  request-Data
 {
     "email":"user@example.com",
     "taskId":"6660b490903fcebd502fa0ac"
