@@ -1,4 +1,13 @@
 <h2><b>ToDoList</b></h2>
+<h1 style="color: red;">NOTE:</h1>
+    <ul style="color: red;">
+        <li>1. Install all libraries.</li>
+        <li>2. Config env variable in config/config.env<br>
+        DB=Database link<br>
+        PORT=Server port<br>
+        JWT_SECRET=To create and validate JWT token.
+        <li>3. Always add header authorization "Bearer token" which get from login or you cannot access api other than Login and Signin.</li>
+    </ul>
 <hr>
 <h4>Flow of project</h4>
 https://github.com/Venom589/ToDoList/assets/89624224/0fea48b6-295c-4b6e-88c4-f5b1be2f9c75
