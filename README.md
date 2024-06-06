@@ -153,7 +153,7 @@ request-Data-
 <br>
 
 <h5>6-View-one-task</h5>
-Link-localhost:{PORT|5000}/signin<br>
+Link-localhost:{PORT|5000}/view-one-task<br>
 Method-Post<br>
 Validation-<pre>
     "Bearer Token": in header authorization part
@@ -171,7 +171,7 @@ request-Data-
 <br>
 
 <h5>7-Edit-task</h5>
-Link-localhost:{PORT|5000}/signin<br>
+Link-localhost:{PORT|5000}/edit-task<br>
 Method-Patch<br>
 Validation-<pre>
     "Bearer Token": in header authorization part
