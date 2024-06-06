@@ -1,4 +1,3 @@
-const { date } = require("joi");
 const mainController = require("./mainController");
 
 class taskController extends mainController {
@@ -37,7 +36,7 @@ class taskController extends mainController {
             await this.tasks.create(task);
             res.status(200).send('Task Created');
         } catch (error) {
-            console.log("Create task error :: ",error);
+            console.log("Create task error :: ", error);
             res.sendStatus(400);
         }
     }
@@ -66,8 +65,7 @@ class taskController extends mainController {
             if (userExist == null) {
                 throw new Error("user not found :: ");
             }
-            let completedTask = await this.tasks.find({ UserId: userExist._id, Status: "Completed" })
-                .select('UserId _v');
+            let completedTask = await this.tasks.find({ UserId: userExist._id, Status: "Completed" });
             res.status(200).json(completedTask);
         } catch (error) {
             console.log("view all Completed task error :: ", error);
@@ -90,7 +88,7 @@ class taskController extends mainController {
             res.sendStatus(400);
         }
     }
-    markAsDone = async (req, res) => {  
+    markAsDone = async (req, res) => {
         try {
             if (!req.body) {
                 throw new Error("Reqest data not found :: ");
@@ -117,7 +115,7 @@ class taskController extends mainController {
             await this.tasks.findByIdAndUpdate(task._id, task);
             res.status(200).json(task);
         } catch (error) {
-            console.log("Mark As done task error :: ",error);
+            console.log("Mark As done task error :: ", error);
             res.sendStatus(400);
         }
     }
@@ -130,9 +128,9 @@ class taskController extends mainController {
             if (userExist == null) {
                 throw new Error("user not found :: ");
             }
-            let task = await this.tasks.findById(req.body.taskId);
+            let task = await this.tasks.findOne({ _id: req.body.taskId, Status: "Pending" });
             if (task == null) {
-                throw new Error("task not found :: ");
+                throw new Error("task not found or task already completed :: ");
             }
             await this.tasks.findByIdAndDelete(task._id);
             res.status(200).send('Task Deleted');
@@ -180,4 +178,4 @@ class taskController extends mainController {
     }
 }
 
-module.exports= new taskController();
+module.exports = new taskController();

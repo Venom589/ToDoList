@@ -1,4 +1,3 @@
-const joi = require('joi');
 const jwt = require('jsonwebtoken');
 
 module.exports.isSchemaValid = (schema) => {
@@ -39,7 +38,7 @@ module.exports.jwtVerify = async (req, res, next) => {
             throw new Error("Header not received :: ");
         }
     } catch (error) {
-        console.log("jwt Error :: ",error);
+        console.log("jwt Error :: ", error);
         res.sendStatus(401);
     }
 }

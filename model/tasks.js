@@ -1,4 +1,3 @@
-const { date, required } = require('joi');
 const mongoose = require('mongoose');
 
 const taskSchema = new mongoose.Schema({

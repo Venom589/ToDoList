@@ -1,11 +1,11 @@
 const cronJob = require('cron').CronJob;
 const tasks = require('./model/tasks');
 
-const changeSubmissions = async() =>{
+const changeSubmissions = async () => {
     try {
-        let data = tasks.find({Status:"Pending", DurationCompleted:""});
-        for (let items of data){
-            if(items.EndDate < Date.now()){
+        let data = tasks.find({ Status: "Pending", DurationCompleted: "" });
+        for (let items of data) {
+            if (items.EndDate < Date.now()) {
                 items.DurationCompleted = "Late";
             }
         }
@@ -16,10 +16,10 @@ const changeSubmissions = async() =>{
 
 var cornOps = new cronJob(
     '0 0 0 * * *',
-    async() =>{
+    async () => {
         await changeSubmissions();
     },
-    ()=>{console.log("cornjob done")},
+    () => { console.log("cornjob done") },
     true,
     'Asia/Kolkata'
 );

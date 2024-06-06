@@ -15,8 +15,8 @@ class userController extends mainController {
             if (userExist == null) {
                 throw new Error("User not Exist ::");
             }
-            let validPassowrd = await bcrypt.compare(req.body.password,userExist.Password);
-            if(validPassowrd == false){
+            let validPassowrd = await bcrypt.compare(req.body.password, userExist.Password);
+            if (validPassowrd == false) {
                 throw new Error("Password is not valid ::");
             }
             let jwtToken = jwt.sign({ username: userExist.Username }, process.env.JWT_SECRET, { expiresIn: '1h' });
